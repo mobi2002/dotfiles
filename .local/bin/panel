@@ -1,0 +1,62 @@
+#! /bin/sh
+
+if xdo id -a "$PANEL_WM_NAME" > /dev/null ; then
+	printf "%s\n" "The panel is already running." >&2
+	exit 1
+fi
+xdo lower $(xdo id -a "$PANEL_WM_NAME")
+#trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
+
+trapusr2()
+{
+    echo 'reloading panel'
+    $0 &
+    exit 0
+}
+trap trapusr2 USR2
+
+trapExit() {
+        echo 'exit signal received'
+        rm $PANEL_FIFO
+        pkill -HUP volume
+        exit 0
+}
+trap trapExit INT TERM QUIT EXIT
+
+PANEL_HEIGHT=20
+PANEL_FIFO="/tmp/lemonbar"
+[ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
+mkfifo "$PANEL_FIFO"
+
+#xtitle -sf 'T%s\n' > "$PANEL_FIFO" &
+while true; do date '+S%l:%M %p' ; sleep 10 ; done > "$PANEL_FIFO" &
+
+# battery
+battery() {
+	capacity=$(cat /sys/class/power_supply/BAT1/capacity)
+	status=$(cat /sys/class/power_supply/BAT1/status)
+
+	if [ "$status" = "Charging" ]; then
+		echo "CHG: $capacity%"
+	elif [ "$status" = "Discharging" ]; then
+		echo "BAT: $capacity%"
+	else
+		echo "BAT: ??"
+	fi
+}
+
+while true; do echo "B$(battery)" ; sleep 5 ; done > "$PANEL_FIFO" &
+
+# volume level
+volume > "$PANEL_FIFO" &
+
+bspc subscribe report > "$PANEL_FIFO" &
+
+. ~/.config/panel/panel_colors
+
+panel_bar < "$PANEL_FIFO" | lemonbar -a 32 -u 2 -n "$PANEL_WM_NAME" -g x$PANEL_HEIGHT -f "$PANEL_FONT" -F "$COLOR_DEFAULT_FG" -B "$COLOR_DEFAULT_BG" | sh &
+
+wid=$(xdo id -m -a "$PANEL_WM_NAME")
+xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" "$wid"
+
+wait

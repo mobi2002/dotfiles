@@ -1,0 +1,93 @@
+#! /bin/sh
+#
+# Example panel for lemonbar
+
+. ~/.config/panel/panel_colors
+
+while read -r line ; do
+	# line is stdin from panel script
+	case $line in
+		# panel script adds letters like S or T etc to output of commands before sending to to FIFO so text can be prased here
+		# checks when output have S before it, that means it was given by the clock command
+ 		S*)
+ 			# clock output
+ 			#	#colors from color file#        # removes the first letter (s in this case)
+ 			sys="%{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG} ${line#?} %{B-}%{F-}"
+ 			;;
+ 		# same as above comments
+ 		B*)
+ 			# battery capacity
+ 			battery="%{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG} ${line#?} %{B-}%{F-}"
+ 			;;
+ 		V*)
+ 			# volume level
+ 			volume="%{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG}%{A:amixer -q sset Master toggle ; pkill -10 volume:} ${line#?} %{A}%{B-}%{F-}"
+ 			;;
+		# this one comes for bspc sucscribe to look for workspaces
+		W*)
+			# bspwm's state
+			#
+			wm=
+			# define separator as :
+			IFS=':'
+			#remove the first character
+			set -- ${line#?}
+                        # run in loop until bspc subscribe's output is there
+			while [ $# -gt 0 ] ; do
+                                # split the output based on IFS
+				item=$1
+                                # remove the first character such as M,O,F etc
+				name=${item#?}
+				case $item in
+                                        # no multi monitor support, because I am on a laptop...
+                                        # it is given in the example file by bspwm.
+                                        # so one can copy it from there if the need for multi monitor ever arise.
+					[fFoOuU]*)
+						case $item in
+							f*)
+								# free desktop
+								FG=$COLOR_FREE_FG
+								BG=$COLOR_FREE_BG
+								UL=$BG
+								;;
+							F*)
+								# focused free desktop
+								FG=$COLOR_FOCUSED_FREE_FG
+								BG=$COLOR_FOCUSED_FREE_BG
+								UL=$COLOR_FOCUSED_UL
+								;;
+							o*)
+								# occupied desktop
+								FG=$COLOR_OCCUPIED_FG
+								BG=$COLOR_OCCUPIED_BG
+								UL=$BG
+								;;
+							O*)
+								# focused occupied desktop
+								FG=$COLOR_FOCUSED_OCCUPIED_FG
+								BG=$COLOR_FOCUSED_OCCUPIED_BG
+								UL=$COLOR_FOCUSED_UL
+								;;
+							u*)
+								# urgent desktop
+								FG=$COLOR_URGENT_FG
+								BG=$COLOR_URGENT_BG
+								UL=$COLOR_URGENT_FG
+								;;
+							U*)
+								# focused urgent desktop
+								FG=$COLOR_FOCUSED_URGENT_FG
+								BG=$COLOR_FOCUSED_URGENT_BG
+								UL=$BG
+								;;
+						esac
+						wm="${wm}%{F${FG}}%{B${BG}}%{U${UL}}%{+u}%{A:bspc desktop -f ${name}:} ${name} %{A}%{B-}%{F-}%{-u}"
+						;;
+				esac
+				shift
+			done
+			;;
+	esac
+        # the actual status line given to lemonbar
+	printf "%s\n" "%{l}${wm}%{r}${volume}${battery}${sys}"
+done

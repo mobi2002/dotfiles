@@ -1,0 +1,4 @@
+#!/bin/sh
+
+manual=$(man -k . | dmenu -l 20 -p Man: | awk '{print $1}')
+[ -z $manual ] || man -Tpdf $manual | zathura -

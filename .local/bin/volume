@@ -1,0 +1,23 @@
+#!/bin/bash
+
+volume() {
+	read -r -a amixer_out <<< "$(amixer get Master | awk -F'[][]' 'END{ print $2, $6 }')"
+	#vol=$(amixer get Master | awk -F'[][]' '{print $2}' | awk NF | uniq)
+	#mute=$(amixer get Master | awk -F'[][]' '{print $4}' | awk NF | uniq)
+
+	if [ ${amixer_out[1]} == "on" ]; then
+		echo "VVOL: ${amixer_out[0]}"
+	else
+		echo "VVOL: mute"
+	fi
+}
+
+volume
+trap 'volume' SIGUSR1
+trap 'rm /tmp/volume; exit' SIGINT SIGHUP SIGTERM
+
+mkfifo /tmp/volume 2> /dev/null
+while true
+do
+	read -p < /tmp/volume
+done

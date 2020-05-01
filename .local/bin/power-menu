@@ -1,0 +1,26 @@
+#!/bin/sh
+
+poweroff="Poweroff"
+reboot="Reboot"
+logout="Log out"
+Suspend="Suspend"
+list=4
+
+choice="$(echo "$poweroff\n$reboot\n$Suspend\n$logout" | dmenu -i -l $list -p "Power:" )"
+
+case $choice in
+	"$poweroff")
+		loginctl poweroff
+		;;
+	"$reboot")
+		loginctl reboot
+		;;
+	"$logout")
+		bspc quit
+		;;
+	"$Suspend")
+		loginctl suspend
+		;;
+	*)
+		exit 1
+esac

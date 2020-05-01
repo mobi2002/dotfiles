@@ -1,0 +1,24 @@
+#!/bin/bash
+
+
+WALL="$XDG_CONFIG_HOME"/wall
+
+restore() {
+	xwallpaper --zoom $WALL
+}
+
+wallset() {
+	cp $IMAGE $WALL
+	restore
+}
+
+if [ -z $1 ]; then
+	restore
+else
+	IMAGE="$1"
+	if file "$IMAGE" |grep -qE 'image';then
+		wallset
+	else
+		exit 1
+	fi
+fi
