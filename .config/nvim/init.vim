@@ -50,6 +50,7 @@ command! W :w
 command! WQ :wq
 command! Wq :wq
 
+" remove highlighting of search term
 map <Leader><Space> :let @/=''<CR>
 
 " resize splits when vim resizes
