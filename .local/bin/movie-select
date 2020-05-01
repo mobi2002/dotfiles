@@ -1,5 +1,5 @@
 #!/bin/bash
-path=$(find ~/vids/{movies,ATLA/Book*}/ -type f -name "*.mp4" -o -name "*.mkv" | sort -n | dmenu -i -l 20 -p Videos:)
+path=$(find ~/vids/movies/ -type f -name "*.mp4" -o -name "*.mkv" | sort -n | dmenu -i -l 20 -p Movies:)
 
 [ -z "$path" ] && exit 1
 mpv "$path"
