@@ -21,7 +21,7 @@ alias diff='diff --color=auto'
 alias poweroff='sudo poweroff'
 alias reboot='sudo reboot'
 alias vifm='vifmrun'
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME' ## command to manage my dotfiles
+alias config='/usr/bin/git --git-dir=$HOME/.local/dotfiles.git/ --work-tree=$HOME' ## command to manage my dotfiles
 
 
 # Customize default shell behaviour
