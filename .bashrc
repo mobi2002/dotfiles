@@ -23,7 +23,6 @@ alias reboot='sudo reboot'
 alias vifm='vifmrun'
 alias config='/usr/bin/git --git-dir=$HOME/.local/dotfiles.git/ --work-tree=$HOME' ## command to manage my dotfiles
 
-
 # Customize default shell behaviour
 shopt -s autocd ## To do 'cd directory' without typing 'cd directory' and only typing 'directory'
 shopt -s cdspell ## To atomatically correct directory path if minor error exists
@@ -41,8 +40,6 @@ c() {
 	[ -z $file ] || env $EDITOR $file
 	unset path file
 }
-
-
 
 EC() {
 	echo -e '\e[1;33m'exit code: $?'\e[m'
