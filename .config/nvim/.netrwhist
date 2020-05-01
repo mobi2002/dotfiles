@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/home/mubashir'
+let g:netrw_dirhist_5='/home/mubashir/pics'
+let g:netrw_dirhist_4='/home/mubashir/.config/gtk-2.0'
+let g:netrw_dirhist_3='/home/mubashir/.config/gtk-3.0'
+let g:netrw_dirhist_2='/home/mubashir/.config'
+let g:netrw_dirhist_1='/home/mubashir'

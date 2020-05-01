@@ -1,0 +1,40 @@
+#!/bin/sh
+
+# run supplied command only if the program is not already running
+_run_if() {
+	if ! pgrep "$1"; then
+		eval "$@"
+	fi
+}
+# set the mouse pointer
+xsetroot -cursor_name left_ptr
+
+# load xresources
+xrdb ~/.config/Xresources
+
+# set wallpaper (wrapper around xwallpaper)
+wallset
+
+# numlock
+numlockx
+
+# manage keybindings
+_run_if sxhkd &
+
+# screen compositor (picom=compton)
+_run_if picom &
+
+# lemonbar instance
+
+panel &
+
+# automatically hide mouse pointer
+_run_if unclutter --ignore-scrolling &
+
+# use i3lock as default X screensaver
+_run_if xss-lock -l -- i3lock -B 10 -e -n &
+
+_run_if imwheel
+
+# authentication agent
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &

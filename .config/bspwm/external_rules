@@ -1,0 +1,19 @@
+#!/bin/sh
+wid=$1
+# class=$2
+# instance=$3
+# consequences=$4
+
+# set GtkFileChooserDialog to 800x600 and in center of screen
+case "$(xprop -id "$wid" | awk '/WM_WINDOW_ROLE/ {print $3}')" in
+	'"GtkFileChooserDialog"' )
+		echo rectangle=800x600+0+0
+		;;
+esac
+
+case "$(xprop -id "$wid" | awk '/^WM_NAME/ {print $3}')" in
+	'"Print"')
+		echo state=floating
+		# echo rectangle=800x600+0+0
+		;;
+esac
