@@ -46,8 +46,12 @@ super + m
 	bspc desktop -l next
 
 # send the newest marked node to the newest preselected node
+# super + y
+# 	bspc node newest.marked.local -n newest.!automatic.local
+
+# send focused node to presel area
 super + y
-	bspc node newest.marked.local -n newest.!automatic.local
+	bspc node -n last.!automatic.local
 
 # swap the current node and the biggest node
 super + g
@@ -124,13 +128,6 @@ super + alt + shift + space
 #
 super + ctrl + {h,j,k,l}
 	bspwm_resize {west,south,north,east} 20
-# # expand a window by moving one of its side outward
-# super + alt + {h,j,k,l}
-# 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
-
-# # contract a window by moving one of its side inward
-# super + alt + shift + {h,j,k,l}
-# 	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
 # move a floating window
 super + {Left,Down,Up,Right}
