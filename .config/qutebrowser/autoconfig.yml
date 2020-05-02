@@ -7,4 +7,5 @@
 config_version: 2
 settings:
   content.notifications:
+    https://wowroms.com: false
     https://www.reddit.com: false
