@@ -1,40 +1,48 @@
-let mapleader=","
+" leader key
+let mapleader=" "
 
+" vim plugins
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'ap/vim-css-color'
-Plug 'kovetskiy/sxhkd-vim'
-Plug 'tpope/vim-commentary'
-Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'morhetz/gruvbox'
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-Plug 'vifm/vifm.vim'
+Plug 'ap/vim-css-color' 		" hex color highlighting
+Plug 'kovetskiy/sxhkd-vim' 		" sxhkdrc syntax highlighting
+Plug 'tpope/vim-commentary'		" make commenting easier
+Plug 'dracula/vim', { 'as': 'dracula' } " dracula color scheme
+Plug 'morhetz/gruvbox' 			" gruvbox colorscheme
+Plug 'SirVer/ultisnips' 		" vim snippets to make coding and stuff faster
+Plug 'honza/vim-snippets' 		" provides actual snippets for 'ultisnips'
+Plug 'vifm/vifm.vim' 			" vifm integration in vim, also provides vifmrc syntax highlighting
+Plug 'klen/python-mode' 		" make vim a python ide
 call plug#end()
 
-set number relativenumber
-set clipboard+=unnamedplus
-set mouse=a
-syntax on
-set ignorecase
-set smartcase
-set termguicolors
-set wildmode=longest,list,full
-set splitbelow splitright
+set number relativenumber 		" line numbers
+set clipboard+=unnamedplus		" use system clipboard
+set mouse=a				" enable mouse
+syntax on				" enable syntax highighting
+set ignorecase				" case insensitive search
+set smartcase				" respect case if search contains upper case
+set termguicolors			" enable 256 colors mode
+set wildmode=longest,list,full		" tabcompletion...
+set splitbelow splitright		" split windows down and right... keep the original where it was
 set nobackup
 set nowritebackup
 set noswapfile
-set scrolloff=999
-colorscheme gruvbox
-set cursorline
+set scrolloff=999			" keep cursor on the middle of screen
+set backspace=indent,eol,start		" make backspace greate again
+set linebreak
+" set cursorline
+colorscheme gruvbox			" default colorscheme
+hi Normal guibg=NONE ctermbg=NONE	" disable colorscheme background to use terminal's
 
-map <leader>h :split<Space>
-map <leader>v :vsplit<Space>
+" vifm splits
+map <leader>h :SplitVifm<CR>
+map <leader>v :VsplitVifm<CR>
 
 " split navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-map <A-Tab> <c-w><c-w>
+map <A-h> <C-w>h
+map <A-j> <C-w>j
+map <A-k> <C-w>k
+map <A-l> <C-w>l
+map <A-Tab> <C-w><C-w>
 
 " Make adjusing split sizes a bit more friendly
 noremap <silent> <C-Left> :vertical resize +3<CR>
@@ -42,6 +50,7 @@ noremap <silent> <C-Right> :vertical resize -3<CR>
 noremap <silent> <C-Up> :resize +3<CR>
 noremap <silent> <C-Down> :resize -3<CR>
 
+" substitute easily
 nnoremap S :%s//g<Left><Left>
 
 " save and close quickly without having to correct error
@@ -87,8 +96,6 @@ autocmd BufNewFile *.sh 0put =\"#!/usr/bin/env sh\<nl>\"|$
 
 " Set scripts to be executable from the shell
 au BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | silent !chmod +x <afile> | endif | endif
-
-autocmd FileType python map <buffer> <F5> :%w !python<cr>
 
 "" snippets
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
