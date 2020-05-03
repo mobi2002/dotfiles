@@ -1,24 +1,28 @@
-import os, sys
+import os
 config.load_autoconfig()
 
-sys.path.append(os.path.join(sys.path[0], "jblock"))
-config.source("jblock/jblock/integrations/qutebrowser.py")
-config.set(
-    "content.host_blocking.lists",
-    [
-        "https://easylist.to/easylist/easylist.txt",
-        "https://easylist.to/easylist/easyprivacy.txt",
-        "https://easylist.to/easylist/fanboy-annoyance.txt",
-        "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters.txt",
-        "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/annoyances.txt",
-        "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/badware.txt",
-        "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/privacy.txt",
-        "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/resource-abuse.txt",
-        "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt",
-        "https://www.malwaredomainlist.com/hostslist/hosts.txt",
-        "https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext",
-    ],
-)
+## jblock
+## disabled because it is slow....for me atleast...
+# import os, sys
+# sys.path
+# config.source("jblock/jblock/integrations/qutebrowser.py")
+# config.set(
+#     "content.host_blocking.lists",
+#     [
+#         "https://easylist.to/easylist/easylist.txt",
+#         "https://easylist.to/easylist/easyprivacy.txt",
+#         "https://easylist.to/easylist/fanboy-annoyance.txt",
+#         "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters.txt",
+#         "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/annoyances.txt",
+#         "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/badware.txt",
+#         "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/privacy.txt",
+#         "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/resource-abuse.txt",
+#         "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt",
+#         "https://www.malwaredomainlist.com/hostslist/hosts.txt",
+#         "https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext",
+#     ],
+# )
+
 # c.aliases = {'w': 'session-save', 'q': 'close', 'qa': 'quit', 'wq': 'quit --save', 'wqa': 'quit --save'}
 # c.auto_save.interval = 15000
 # c.auto_save.session = False
@@ -149,8 +153,8 @@ c.confirm_quit = ['downloads']
 # c.content.headers.do_not_track = True
 # c.content.headers.referer = 'same-domain'
 # c.content.headers.user_agent = 'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) {qt_key}/{qt_version} {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version}'
-c.content.host_blocking.enabled = False
-# c.content.host_blocking.lists = ['https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts', 'https://github.com/jmdugan/blocklists/raw/master/corporations/facebook/all', 'https://github.com/jmdugan/blocklists/raw/master/corporations/cloudflare/all', 'https://github.com/jmdugan/blocklists/raw/master/corporations/amazon/all', 'https://raw.githubusercontent.com/jmdugan/blocklists/master/corporations/twitter/all', 'https://github.com/jmdugan/blocklists/raw/master/corporations/microsoft/all', 'https://github.com/jmdugan/blocklists/raw/master/corporations/apple/all']
+c.content.host_blocking.enabled = True
+c.content.host_blocking.lists = ['https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts', 'https://github.com/jmdugan/blocklists/raw/master/corporations/facebook/all', 'https://github.com/jmdugan/blocklists/raw/master/corporations/cloudflare/all', 'https://github.com/jmdugan/blocklists/raw/master/corporations/amazon/all', 'https://raw.githubusercontent.com/jmdugan/blocklists/master/corporations/twitter/all', 'https://github.com/jmdugan/blocklists/raw/master/corporations/microsoft/all', 'https://github.com/jmdugan/blocklists/raw/master/corporations/apple/all']
 #c.content.host_blocking.whitelist = []
 # c.content.hyperlink_auditing = False
 # c.content.images = True

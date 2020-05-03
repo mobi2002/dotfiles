@@ -276,7 +276,7 @@ fileviewer *.torrent dumptorrent -v %c
 " syntax highlighting
 fileviewer *.[ch],*.[ch]pp highlight -O xterm256 -s dracula --syntax c %c
 fileviewer Makefile,Makefile.* highlight -O xterm256 -s dracula --syntax make %c
-fileviewer bashrc,profile,imwheelrc,bspwmrc,autostart,external_rules,sxhkdrc highlight -O xterm256 -s dracula --syntax bash %c
+fileviewer .bashrc,.profile,.imwheelrc,bspwmrc,autostart,external_rules,sxhkdrc highlight -O xterm256 -s dracula --syntax bash %c
 fileviewer pythonrc,*.py highlight -O xterm256 -s dracula --syntax python %c
 " fileviewer *[^/] pygmentize -O style=monokai -f console256 -g
 
