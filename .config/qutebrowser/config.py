@@ -318,7 +318,7 @@ c.tabs.show = 'multiple'
 c.url.default_page = 'file:///home/mubashir/.config/qutebrowser/blank.html'
 # c.url.incdec_segments = ['path', 'query']
 # c.url.open_base_url = False
-c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}' , 'g': 'https://www.google.com/search?q={}' , 'aw': 'https://wiki.archlinux.org/?search={}'}
+c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}' , 'g': 'https://www.google.com/search?q={}' , 'aw': 'https://wiki.archlinux.org/?search={}', 'yt': 'https://www.youtube.com/results?search_query={}'}
 c.url.start_pages = ['file:///home/mubashir/.config/qutebrowser/blank.html']
 # c.url.yank_ignored_parameters = ['ref', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content']
 # c.window.hide_decoration = False

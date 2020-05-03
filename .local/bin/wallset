@@ -12,7 +12,7 @@ wallset() {
 	restore
 }
 
-if [ -z $1 ]; then
+if [ -z "$1" ]; then
 	restore
 else
 	IMAGE="$1"
