@@ -1,5 +1,5 @@
 " leader key
-let mapleader=" "
+let mapleader=","
 
 " vim plugins
 call plug#begin('~/.local/share/nvim/plugged')
@@ -11,7 +11,7 @@ Plug 'morhetz/gruvbox' 			" gruvbox colorscheme
 Plug 'SirVer/ultisnips' 		" vim snippets to make coding and stuff faster
 Plug 'honza/vim-snippets' 		" provides actual snippets for 'ultisnips'
 Plug 'vifm/vifm.vim' 			" vifm integration in vim, also provides vifmrc syntax highlighting
-Plug 'klen/python-mode' 		" make vim a python ide
+" Plug 'klen/python-mode' 		" make vim a python ide
 call plug#end()
 
 set number relativenumber 		" line numbers
@@ -34,7 +34,7 @@ colorscheme gruvbox			" default colorscheme
 hi Normal guibg=NONE ctermbg=NONE	" disable colorscheme background to use terminal's
 
 " vifm splits
-map <leader>h :SplitVifm<CR>
+map <leader>s :SplitVifm<CR>
 map <leader>v :VsplitVifm<CR>
 
 " split navigation
@@ -52,6 +52,9 @@ noremap <silent> <C-Down> :resize -3<CR>
 
 " substitute easily
 nnoremap S :%s//g<Left><Left>
+
+" Redo with U
+nnoremap U <C-r>
 
 " save and close quickly without having to correct error
 command! Q :q
