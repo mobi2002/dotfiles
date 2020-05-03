@@ -18,6 +18,9 @@ wallset
 # numlock
 numlockx
 
+setxkbmap -option "caps:escape"
+setxkbmap -option "shift:both_capslock"
+
 # manage keybindings
 _run_if sxhkd &
 
