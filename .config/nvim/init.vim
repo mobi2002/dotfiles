@@ -87,6 +87,8 @@ autocmd BufWritePost *bspwmrc,*autostart,*external_rules !bspc wm -r
 " restart panel on config edit
 autocmd BufWritePost *panel,*panel_bar,*panel_colors !pkill -USR2 panel
 
+autocmd BufWritePost *dunstrc !pkill dunst ; dunst &
+
 " source init.vim
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 

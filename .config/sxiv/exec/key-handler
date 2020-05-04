@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+while  read file ; do
+	case $1 in
+		"b" )
+			wallset "$file" & ;;
+	esac
+done
