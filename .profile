@@ -42,3 +42,5 @@ export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 # start X server if on tty1 and X server not already running
 [ "$(tty)" = "/dev/tty1" ] && ! ps -e | grep -qw Xorg &&\
 startx "$XDG_CONFIG_HOME/xinitrc"
+
+sudo loadkeys ~/.config/keys.map
