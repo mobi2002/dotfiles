@@ -6,6 +6,6 @@
 
 pidof transmission-daemon >/dev/null || (transmission-daemon && sleep 3)
 
-path=$(zenity --file-selection --directory)
+path=$(vifm-file-chooser.sh -d)
 [ -z "$path" ] && exit 1
 transmission-remote -w "$path" -a "$@"
