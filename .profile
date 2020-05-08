@@ -39,12 +39,13 @@ export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
 export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
-# default winebottle
+# default wine options
 export WINEARCH="win32"
-export WINEPREFIX="~/.local/wine/default/"
-# disable wine xdg stuff
-# export WINEDLLOVERRIDES="winemenubuilder.exe=d"
-export WINESERVER="/usr/local/bin/wineserver"
+export WINEPREFIX="$HOME/.local/wine/default/"
+export WINEDLLOVERRIDES="winemenubuilder.exe=d"
+
+# prevent firejail from creating output
+export FIREJAIL_QUIET="yes"
 
 # start X server if on tty1 and X server not already running
 [ "$(tty)" = "/dev/tty1" ] && ! ps -e | grep -qw Xorg &&\

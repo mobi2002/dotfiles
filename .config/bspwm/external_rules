@@ -1,19 +1,37 @@
 #!/bin/sh
+
+# spawn new windows on presel area
+presel="$(bspc query -N -n 'newest.!automatic')"
+[ -n "$presel" ] && target="$presel"
+echo "node=${target:-focused}"
+echo "follow=on"
+
+## Window Rules
 wid=$1
-# class=$2
+class=$2
 # instance=$3
 # consequences=$4
 
-# set GtkFileChooserDialog to 800x600 and in center of screen
-case "$(xprop -id "$wid" | awk '/WM_WINDOW_ROLE/ {print $3}')" in
-	'"GtkFileChooserDialog"' )
-		echo rectangle=800x600+0+0
+case "$class" in
+	[Zz]athura)
+		echo state=tiled
+		;;
+	[Ll]xappearance|[Gg]alculator)
+		echo state=pseudo_tiled
+		;;
+	Vifm-file-chooser)
+		echo state=floating
+		echo rectangle=800x600+50%+50%
+		;;
+	winecfg.exe)
+		echo center=on
 		;;
 esac
 
-case "$(xprop -id "$wid" | grep '^WM_NAME' | sed 's:.*=\ ::')" in
-	'"Print"')
-		echo state=floating
-		# echo rectangle=800x600+0+0
-		;;
-esac
+# set GtkFileChooserDialog to 800x600 and in center of screen
+role="$(xprop -id "$wid" | awk '/WM_WINDOW_ROLE/ {print $3}')"
+[ "$role" = '"GtkFileChooserDialog"' ] && echo state=floating && echo rectangle=800x600+0+0
+
+# set Print dialog to floating mode
+wm_name="$(xprop -id "$wid" | grep '^WM_NAME' | sed 's:.*=\ ::')"
+[ "$wm_name" = '"Print"' ] && echo state=floating
