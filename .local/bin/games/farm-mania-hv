@@ -1,0 +1,5 @@
+#!/bin/sh
+
+WINEPREFIX=~/.local/wine/farm-mania/ \
+	wine start /unix \
+	~/.local/wine/farm-mania/drive_c/Program\ Files/Farm-Mania-Hot-Vacation/Farm_Mania_HV.exe
