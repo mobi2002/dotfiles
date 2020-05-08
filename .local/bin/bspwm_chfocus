@@ -1,0 +1,39 @@
+#!/bin/sh
+direction=$2
+arg=$1
+
+main() {
+	layout="$(bspc query -T -d | jq -r .layout)"
+	if [ "$layout" = "tiled" ]; then
+		case "$direction" in
+			west) bspc node -$1 west.local
+				;;
+			south) bspc node -$1 south.local
+				;;
+			north) bspc node -$1 north.local
+				;;
+			east) bspc node -$1 east.local
+				;;
+		esac
+	elif [ "$layout" = "monocle" ]; then
+		case "$direction" in
+			west) bspc node -$1 prev.local
+				;;
+			south) bspc node -$1 next.local
+				;;
+			north) bspc node -$1 prev.local
+				;;
+			east) bspc node -$1 next.local
+				;;
+		esac
+	fi
+}
+
+if [ "$1" = "-f" ]; then
+	main f
+elif [ "$1" = "-s" ]; then
+	main s
+else
+	echo here
+	exit 1
+fi
