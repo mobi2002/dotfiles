@@ -5,7 +5,7 @@ include "/home/mubashir/.config/gtk-2.0/gtkrc.mine"
 gtk-theme-name="Breeze-Dark"
 gtk-icon-theme-name="breeze-dark"
 gtk-font-name="Cantarell 11"
-gtk-cursor-theme-name="Breeze_Snow"
+gtk-cursor-theme-name="Breeze"
 gtk-cursor-theme-size=0
 gtk-toolbar-style=GTK_TOOLBAR_TEXT
 gtk-toolbar-icon-size=GTK_ICON_SIZE_SMALL_TOOLBAR

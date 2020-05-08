@@ -11,7 +11,7 @@ case "$(xprop -id "$wid" | awk '/WM_WINDOW_ROLE/ {print $3}')" in
 		;;
 esac
 
-case "$(xprop -id "$wid" | awk '/^WM_NAME/ {print $3}')" in
+case "$(xprop -id "$wid" | grep '^WM_NAME' | sed 's:.*=\ ::')" in
 	'"Print"')
 		echo state=floating
 		# echo rectangle=800x600+0+0

@@ -1,8 +1,8 @@
 # source bashrc if running bash
 [ -n "$BASH_VERSION" ] && [ -f "$HOME/.bashrc" ] && . "$HOME/.bashrc"
 
-# add local bin folder to path if it exist
-[ -d "$HOME/.local/bin" ] && export PATH="$HOME/.local/bin:$PATH"
+# add local bin folder to path
+export PATH=$(find "$HOME/.local/bin/" -type d | tr '\n' ':')$PATH
 
 # default programs
 export EDITOR="nvim"
@@ -38,6 +38,13 @@ export LESS_TERMCAP_so=$'\E[01;44;33m' # begin reverse video
 export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
 export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
+
+# default winebottle
+export WINEARCH="win32"
+export WINEPREFIX="~/.local/wine/default/"
+# disable wine xdg stuff
+# export WINEDLLOVERRIDES="winemenubuilder.exe=d"
+export WINESERVER="/usr/local/bin/wineserver"
 
 # start X server if on tty1 and X server not already running
 [ "$(tty)" = "/dev/tty1" ] && ! ps -e | grep -qw Xorg &&\

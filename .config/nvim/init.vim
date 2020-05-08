@@ -3,7 +3,7 @@ let mapleader=","
 
 " vim plugins
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'ap/vim-css-color' 		" hex color highlighting
+Plug 'lilydjwg/colorizer'		" hex color highlighting
 Plug 'kovetskiy/sxhkd-vim' 		" sxhkdrc syntax highlighting
 Plug 'tpope/vim-commentary'		" make commenting easier
 Plug 'dracula/vim', { 'as': 'dracula' } " dracula color scheme
@@ -33,6 +33,8 @@ set linebreak
 colorscheme gruvbox			" default colorscheme
 hi Normal guibg=NONE ctermbg=NONE	" disable colorscheme background to use terminal's
 
+" vifm config
+let g:vifm_exec_args = "-c only"
 " vifm splits
 map <leader>s :SplitVifm<CR>
 map <leader>v :VsplitVifm<CR>

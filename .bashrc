@@ -35,7 +35,7 @@ HISTCONTROL=ignoreboth ## don't put duplicate lines or lines starting with space
 PS1='\[\033[01;36m\]\u\[\033[01;37m\]@\[\033[01;32m\]\h:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 c() {
-	path="$(find ~/{.config/,.local/} -type d -name "icons" -prune -o  -type f -print ; find ~/ -maxdepth 1 -type f -name ".*")"
+	path="$(find ~/{.config/,.local/} -type d -name "icons" -prune -o -type d -name "wine" -prune -o  -type f -print ; find ~/ -maxdepth 1 -type f -name ".*")"
 	file="$(echo $path | sed 's/\ /\n/g' | fzf)"
 	[ -z $file ] || env $EDITOR $file
 	unset path file
