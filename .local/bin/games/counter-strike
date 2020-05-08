@@ -1,0 +1,7 @@
+#!/bin/sh
+# launch counter strike from it's winebottle
+
+WINEPREFIX=~/.local/wine/cs16 \
+	wine start /unix \
+	~/.local/wine/cs16/drive_c/Games/CS16/hl.exe \
+	-steam -game cstrike -noforcemparms -noforcemaccel
