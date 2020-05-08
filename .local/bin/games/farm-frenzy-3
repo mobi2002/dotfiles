@@ -1,4 +1,4 @@
 #!/bin/sh
 WINEPREFIX=~/.local/wine/farmfrenzy/ \
 	wine start /unix \
-	~/.local/wine/farmfrenzy/drive_c/Program\ Files/FarmFrenzy/My\ Games/3/FarmFrenzyPizzaParty.exe
+	~/.local/wine/farmfrenzy/drive_c/Program\ Files/FarmFrenzy/My\ Games/4/FarmFrenzy3.exe
