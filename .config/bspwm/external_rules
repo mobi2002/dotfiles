@@ -19,7 +19,7 @@ case "$class" in
 	[Ll]xappearance|[Gg]alculator)
 		echo state=pseudo_tiled
 		;;
-	Vifm-file-chooser)
+	vifm-file-chooser)
 		echo state=floating
 		echo rectangle=800x600+50%+50%
 		;;
