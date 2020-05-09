@@ -45,3 +45,6 @@ EC() {
 	echo -e '\e[1;33m'exit code: $?'\e[m'
 }
 trap EC ERR
+
+# command not found provided by pkgfile package
+source /usr/share/doc/pkgfile/command-not-found.bash

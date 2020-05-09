@@ -16,8 +16,29 @@ while read -r line ; do
  			;;
  		# same as above comments
  		B*)
+			set -- ${line#?}
+			item=$@
+			case $item in
+				1*)
+				        FG='#00A0ff'
+					BG=$COLOR_SYS_BG
+					;;
+				2*)
+					FG='#fabd2f'
+					BG=$COLOR_SYS_BG
+					;;
+				3*)
+					FG='#fb4934'
+					;;
+				C*)
+					# FG=$COLOR_SYS_FG
+					FG='#00c000'
+					BG=$COLOR_SYS_BG
+					;;
+			esac
+
  			# battery capacity
- 			battery="%{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG} ${line#?} %{B-}%{F-}"
+ 			battery="%{F$FG}%{B$BG} ${item#?} %{B-}%{F-}"
  			;;
  		V*)
  			# volume level

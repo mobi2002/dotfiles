@@ -32,20 +32,7 @@ mkfifo "$PANEL_FIFO"
 while true; do date '+S%l:%M %p' ; sleep 10 ; done > "$PANEL_FIFO" &
 
 # battery
-battery() {
-	capacity=$(cat /sys/class/power_supply/BAT1/capacity)
-	status=$(cat /sys/class/power_supply/BAT1/status)
-
-	if [ "$status" = "Charging" ]; then
-		echo "CHG: $capacity%"
-	elif [ "$status" = "Discharging" ]; then
-		echo "BAT: $capacity%"
-	else
-		echo "BAT: ??"
-	fi
-}
-
-while true; do echo "B$(battery)" ; sleep 5 ; done > "$PANEL_FIFO" &
+while true; do battery ; sleep 5 ; done > "$PANEL_FIFO" &
 
 # volume level
 volume > "$PANEL_FIFO" &
