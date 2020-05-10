@@ -1,8 +1,5 @@
-# scroll st with only scroll wheel and not having to press alt
-# scrollback with alt+mouse is implimnted by the scrollback-mouse patch
-# "^st$"
-#     none, Up, Alt_L|Button4, 4
-#     none, Down, Alt_L|Button5, 4
+# scroll st with only scroll wheel
+# this is added by st-scrollback patch
 #
   "^st$"
   	none, Up, Alt_L|k, 4

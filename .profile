@@ -1,7 +1,9 @@
+## ~/.profile
+
 # source bashrc if running bash
 [ -n "$BASH_VERSION" ] && [ -f "$HOME/.bashrc" ] && . "$HOME/.bashrc"
 
-# add local bin folder to path
+# add local bin directory and all subdirectories to path
 export PATH=$(find "$HOME/.local/bin/" -type d | tr '\n' ':')$PATH
 
 # default programs
@@ -48,4 +50,5 @@ export FIREJAIL_QUIET="yes"
 [ "$(tty)" = "/dev/tty1" ] && ! ps -e | grep -qw Xorg &&\
 startx "$XDG_CONFIG_HOME/xinitrc"
 
-sudo loadkeys ~/.config/keys.map
+# make caps lock escape in tty (configure sudo to not ask password for this)
+sudo loadkeys "$XDG_CONFIG_HOME/keys.map"
