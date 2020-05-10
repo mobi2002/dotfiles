@@ -58,6 +58,10 @@ nnoremap S :%s//g<Left><Left>
 " Redo with U
 nnoremap U <C-r>
 
+" really delete text instead of copying it into the register
+noremap d "_d
+noremap dd "_dd
+
 " save and close quickly without having to correct error
 command! Q :q
 command! W :w

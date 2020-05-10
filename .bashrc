@@ -6,11 +6,11 @@
 [[ $- != *i* ]] && return
 
 # Aliases to make my life easier
-alias ls='ls -F --color=auto' ## list unhidden files
-alias ll='ls -lshF --color=auto' ## list unhidden files in list form
-alias la='ls -AF --color=auto' ## list all files
-alias lla="ls -lAshF --color=auto" ## list all files in list form
-alias grep='grep -i --color=auto'
+alias ls='ls -F --color=auto --group-directories-first' ## list unhidden files
+alias ll='ls -lshF --color=auto --group-directories-first' ## list unhidden files in list form
+alias la='ls -AF --color=auto --group-directories-first' ## list all files
+alias lla='ls -lAshF --color=auto --group-directories-first' ## list all files in list form
+alias grep='grep -i --color=auto --group-directories-first'
 alias cd..='cd ..'
 alias mv='mv -iv' ## verbose output + confirmation
 alias rm='rm -Iv --one-file-system' ## verbose output + confirmation
