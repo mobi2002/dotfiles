@@ -3,8 +3,11 @@
 # source bashrc if running bash
 [ -n "$BASH_VERSION" ] && [ -f "$HOME/.bashrc" ] && . "$HOME/.bashrc"
 
-# add local bin directory and all subdirectories to path
-export PATH=$(find "$HOME/.local/bin/" -type d | tr '\n' ':')$PATH
+# add local bin directory and all subdirectories to path and also remove any duplicates
+# because when this file is sourced multiple times, (through xprofile or other means)
+# it creates duplicates in PATH for local bin folders
+PATH=$(find "$HOME/.local/bin/" -type d | tr '\n' ':')$PATH
+export PATH="$(perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, $ENV{PATH}))')"
 
 # default programs
 export EDITOR="nvim"
