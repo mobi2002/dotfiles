@@ -28,16 +28,12 @@ export TERMINFO_DIRS="$XDG_DATA_HOME/terminfo:/usr/share/terminfo"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/pythonrc"
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 export HISTFILE="$XDG_DATA_HOME/bash/history"
+export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 
-# some coloring in less
-export LESS=-R
-export LESS_TERMCAP_mb=$'\E[1;31m'     # begin blink
-export LESS_TERMCAP_md=$'\E[1;36m'     # begin bold
-export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
-export LESS_TERMCAP_so=$'\E[01;44;33m' # begin reverse video
-export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
-export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
-export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
+# qt5 appearance
+export QT_QPA_PLATFORMTHEME="qt5ct"
+# prevent font corruption in gtk apps with intel
+export COGL_ATLAS_DEFAULT_BLIT_MODE="framebuffer"
 
 # default wine options
 export WINEARCH="win32"

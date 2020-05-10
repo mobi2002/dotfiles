@@ -1,48 +1,25 @@
-!! Xresources file. Contains settings for urxvt.
-!
-!! do not scroll with output
+!! Xresources file.
+
+! URXVT
 URxvt*scrollTtyOutput: false
-!
-!! scroll in relation to buffer
 URxvt*scrollWithBuffer: true
-!
-!! scroll back with keypress
 URxvt*scrollTtyKeypress: true
-!
-!! fonts
-URxvt.font: xft:DejaVuSansMono:size=13
-!
-!! reduce letter spapce
+URxvt.font: xft:Monospace-14
 URxvt.letterSpace: -1.5
-!
-!! disable scrollbar
 URxvt*scrollBar: false
-!
-!! perl extensions
-!URxvt.perl-ext-common: default,resize-font,matcher
-!
-!! Resize-font settings
-!URxvt.keysym.C-j:         resize-font:smaller
-!URxvt.keysym.C-k:         resize-font:bigger
-!URxvt.keysym.C-r:         resize-font:reset
-!
-!! matcher settings (clickable urls)
-!URxvt.url-launcher: /usr/bin/xdg-open
-!URxvt.matcher.button: 1
-!URxvt.matcher.rend.0: Uline Bold fg6
-!
-!! Disable the stupid ctrl+shift 'feature'
 URxvt.iso14755:    false
 URxvt.iso14755_52: false
-!
-!! Transparency
-URxvt*depth: 32
-URxvt*background: [90]#000000
-!
-! ST
+
+! ST (xresources patch applied)
 st.alpha: 0.92
 st.term: st-256color
 st.font: Monospace-14
+
+! DMENU (xresources patch applied)
+! also uses foreground and background from colorscheme
+dmenu.selforeground: #282828
+dmenu.selbackground: #ebdbb2
+dmenu.highlight: #928374
 
 ! Colour scheme
 !
@@ -132,8 +109,3 @@ st.font: Monospace-14
 ! LightGrey + White
 *color7:  #a89984
 *color15: #ebdbb2
-
-
-dmenu.selforeground: #282828
-dmenu.selbackground: #ebdbb2
-dmenu.highlight: #928374

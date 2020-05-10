@@ -29,7 +29,6 @@ set noswapfile
 set scrolloff=999			" keep cursor on the middle of screen
 set backspace=indent,eol,start		" make backspace greate again
 " set linebreak
-set nowrap
 " set cursorline
 colorscheme gruvbox			" default colorscheme
 hi Normal guibg=NONE ctermbg=NONE	" disable colorscheme background to use terminal's
