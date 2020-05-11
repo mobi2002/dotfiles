@@ -19,6 +19,9 @@ case "$class" in
 	[Ll]xappearance|[Gg]alculator)
 		echo state=pseudo_tiled
 		;;
+	# it is a script to launch vifm as a file chooser
+	# made to replace zenity --file-chooser for custom scripts
+	# because i want to avoide gtk file dialog as much as possible
 	vifm-file-chooser)
 		echo state=floating
 		echo rectangle=800x600+50%+50%
