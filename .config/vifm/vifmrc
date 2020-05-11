@@ -219,6 +219,14 @@ filetype *.[1-8] man ./%c
 " filextype * xdg-open
 
 "" Previews
+
+" I don't like the way vifm's default directory preview looks like so I added
+" this so only the contents of that directory are shown instead of everything
+" even in the subdirectories
+fileview */ tree %c -L 1 --dirsfirst
+fileview .*/ tree %c -L 1 --dirsfirst
+fileview ../ tree %c -L 1 --dirsfirst
+
 fileviewer *.pdf
     \ vifmimg pdfpreview %px %py %pw %ph %c
     \ %pc
@@ -272,6 +280,10 @@ fileviewer *.7z 7z l %c
 fileviewer *.[1-8] man ./%c | col -b
 
 fileviewer *.torrent dumptorrent -v %c
+
+fileviewer *.html,*.htm lynx -dump %c
+
+fileviewer *.md md2html %c | lynx -dump -stdin
 
 " syntax highlighting
 fileviewer *.[ch],*.[ch]pp highlight -O xterm256 -s dracula --syntax c %c
