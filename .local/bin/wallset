@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 
 WALL="$XDG_CONFIG_HOME"/wall

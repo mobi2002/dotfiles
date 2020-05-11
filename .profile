@@ -32,7 +32,6 @@ export PYTHONSTARTUP="$XDG_CONFIG_HOME/pythonrc"
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 export HISTFILE="$XDG_DATA_HOME/bash/history"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
-export XINITRC="$XDG_CONFIG_HOME/xinitrc"
 export RXVT_SOCKET="$XDG_RUNTIME_DIR/urxvtd"
 
 # qt5 appearance
@@ -51,7 +50,7 @@ export FIREJAIL_QUIET="yes"
 
 # start X server if on tty1 and X server not already running
 [ "$(tty)" = "/dev/tty1" ] && ! ps -e | grep -qw Xorg &&\
-startx "$XDG_CONFIG_HOME/xinitrc"
+startx
 
 # make caps lock escape in tty (configure sudo to not ask password for this)
 sudo loadkeys "$XDG_CONFIG_HOME/keys.map"
