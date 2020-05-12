@@ -1,5 +1,6 @@
 #!/bin/sh
-WINEPREFIX=~/.local/wine/portal/ \
+LIBGL_DRI3_DISABLE=1 \
+	WINEPREFIX=~/.local/wine/portal/ \
 	wine start /unix \
 	~/.local/wine/portal/drive_c/Program\ Files/Portal/Portal.exe \
 	-noforcemparms -noforcemaccel
