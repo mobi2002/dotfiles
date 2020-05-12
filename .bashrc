@@ -30,7 +30,13 @@ shopt -s cdspell ## To atomatically correct directory path if minor error exists
 shopt -s no_empty_cmd_completion ## To not search completion in $PATH when attempted with empty line
 shopt -s histappend ## To append history to 'HISTFILE' rather than overwriting it
 shopt -s checkwinsize
+
 HISTCONTROL=ignoreboth ## don't put duplicate lines or lines starting with space in the history
+HISTSIZE=-1 ## unlimited history
+HISTFILESIZE=-1 ## unlimited history file
+
+# immideately write history
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
 # My prompt customization
 PS1='\[\033[01;36m\]\u\[\033[01;37m\]@\[\033[01;32m\]\h:\[\033[01;34m\]\w\[\033[00m\]\$ '
