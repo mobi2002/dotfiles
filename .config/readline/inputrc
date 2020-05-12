@@ -22,10 +22,16 @@ set keymap vi-command
 "\e[B": history-search-forward
 j: history-search-forward
 k: history-search-backward
+Control-l: clear-screen
+Control-a: beginning-of-line
+Control-e: end-of-line
 set keymap vi-insert
 # these are for vi-insert mode
 "\e[A": history-search-backward
 "\e[B": history-search-forward
+Control-l: clear-screen
+Control-a: beginning-of-line
+Control-e: end-of-line
 $endif
 
 set show-mode-in-prompt on

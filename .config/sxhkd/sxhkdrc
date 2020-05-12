@@ -10,7 +10,7 @@ super + Return
 super + d
 	dmenu_run -p Dmenu:
 
-super + f
+super + v
 	$TERMINAL -e vifmrun
 
 super + w
@@ -62,7 +62,7 @@ super + g
 #
 
 # set the window state
-super + {t,shift + t,s,shift + f}
+super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
@@ -75,7 +75,7 @@ super + ctrl + {m,x,y,z}
 
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
-  bspwm_chfocus -{f,s} {west,south,north,east}
+	bspwm_chfocus -{f,s} {west,south,north,east}
 
 # focus the node for the given path jump
 super + {p,b,comma,period}
@@ -108,25 +108,25 @@ super + {_,shift + }{1-9,0}
 #
 
 # preselect the direction
-super + alt + {h,j,k,l}
+super + ctrl + {h,j,k,l}
 	bspc node -p {west,south,north,east}
 
 # preselect the ratio
-super + alt + {1-9}
+super + ctrl + {1-9}
 	bspc node -o 0.{1-9}
 
 # cancel the preselection for the focused node
-super + alt + space
+super + ctrl + space
 	bspc node -p cancel
 
 # cancel the preselection for the focused desktop
-super + alt + shift + space
+super + ctrl + shift + space
 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
 #
 # move/resize
 #
-super + ctrl + {h,j,k,l}
+super + alt + {h,j,k,l}
 	bspwm_resize {west,south,north,east} 20
 
 # move a floating window

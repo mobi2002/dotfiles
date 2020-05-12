@@ -36,6 +36,7 @@ export RXVT_SOCKET="$XDG_RUNTIME_DIR/urxvtd"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
 export XSERVERRC="$XDG_CONFIG_HOME/X11/xserverrc"
+export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME/java"
 
 # qt5 appearance
 export QT_QPA_PLATFORMTHEME="qt5ct"
