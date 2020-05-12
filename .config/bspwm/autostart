@@ -10,7 +10,7 @@ _run_if() {
 xsetroot -cursor_name left_ptr
 
 # load xresources
-xrdb "$XDG_CONFIG_HOME/Xresources"
+xrdb "$XDG_CONFIG_HOME/X11/Xresources"
 
 # set wallpaper (wrapper around xwallpaper)
 wallset
