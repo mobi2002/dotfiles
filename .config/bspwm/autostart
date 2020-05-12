@@ -10,7 +10,7 @@ _run_if() {
 xsetroot -cursor_name left_ptr
 
 # load xresources
-xrdb ~/.config/Xresources
+xrdb "$XDG_CONFIG_HOME/Xresources"
 
 # set wallpaper (wrapper around xwallpaper)
 wallset
@@ -18,7 +18,10 @@ wallset
 # numlock
 numlockx
 
+# set caps as another escape
 setxkbmap -option "caps:escape"
+
+# set both shifts together as caps lock
 setxkbmap -option "shift:both_capslock"
 
 # manage keybindings

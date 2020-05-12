@@ -33,6 +33,7 @@ export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 export HISTFILE="$XDG_DATA_HOME/bash/history"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export RXVT_SOCKET="$XDG_RUNTIME_DIR/urxvtd"
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 
 # qt5 appearance
 export QT_QPA_PLATFORMTHEME="qt5ct"
