@@ -24,6 +24,11 @@ alt + m
 
 alt + p
 	manpdf
+
+# configure sudo to not ask password for this
+super + alt + c
+	sudo connman_dmenu
+
 #
 # bspwm hotkeys
 #
