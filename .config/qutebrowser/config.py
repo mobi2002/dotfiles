@@ -123,20 +123,20 @@ config.load_autoconfig()
 c.colors.webpage.prefers_color_scheme_dark = True
 # c.completion.cmd_history_max_items = 100
 # c.completion.delay = 0
-# c.completion.height = '50%'
+c.completion.height = '50%'
 # c.completion.min_chars = 1
-# c.completion.open_categories = ['searchengines', 'quickmarks', 'bookmarks', 'history']
+c.completion.open_categories = ['quickmarks', 'bookmarks', 'history']
 # c.completion.quick = True
 # c.completion.scrollbar.padding = 2
 # c.completion.scrollbar.width = 12
 # c.completion.show = 'always'
-# c.completion.shrink = False
-# c.completion.timestamp_format = '%Y-%m-%d'
+c.completion.shrink = True
+c.completion.timestamp_format = '%d-%m-%Y'
 # c.completion.use_best_match = False
 # c.completion.web_history.exclude = []
 # c.completion.web_history.max_items = -1
 c.confirm_quit = ['downloads']
-# c.content.autoplay = True
+c.content.autoplay = False
 # c.content.cache.appcache = True
 # c.content.cache.maximum_pages = 0
 # c.content.cache.size = None
@@ -145,7 +145,7 @@ c.confirm_quit = ['downloads']
 # c.content.cookies.store = True
 # c.content.default_encoding = 'iso-8859-1'
 # c.content.desktop_capture = 'ask'
-# c.content.dns_prefetch = False
+c.content.dns_prefetch = True
 # c.content.frame_flattening = False
 # c.content.geolocation = 'ask'
 # c.content.headers.accept_language = 'en-US,en;q=0.9'
@@ -195,7 +195,7 @@ c.content.host_blocking.lists = ['https://raw.githubusercontent.com/StevenBlack/
 # c.downloads.location.suggestion = 'path'
 # c.downloads.open_dispatcher = None
 c.downloads.position = 'bottom'
-c.downloads.remove_finished = 1200
+c.downloads.remove_finished = 2000
 # c.editor.command = ['vim', '{file}', '-c', 'normal {line}G{column0}l']
 # c.editor.command = ["st", "-e", "vim", "{file}"]
 c.editor.command = [os.getenv('TERMINAL', 'st'), "-e", os.getenv('EDITOR', 'vim'), "{file}"]
@@ -282,7 +282,7 @@ c.input.insert_mode.leave_on_load = False
 c.statusbar.hide = False
 c.statusbar.padding = {'top': 0, 'bottom': 0, 'left': 0, 'right': 0}
 # c.statusbar.position = 'bottom'
-# c.statusbar.widgets = ['keypress', 'url', 'scroll', 'history', 'tabs', 'progress']
+c.statusbar.widgets = ['keypress', 'url', 'tabs', 'progress']
 # c.tabs.background = False
 # c.tabs.close_mouse_button = 'middle'
 # c.tabs.close_mouse_button_on_bar = 'new-tab'
@@ -318,7 +318,7 @@ c.tabs.show = 'multiple'
 c.url.default_page = 'file:///home/mubashir/.config/qutebrowser/blank.html'
 # c.url.incdec_segments = ['path', 'query']
 # c.url.open_base_url = False
-c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}' , 'g': 'https://www.google.com/search?q={}' , 'aw': 'https://wiki.archlinux.org/?search={}', 'yt': 'https://www.youtube.com/results?search_query={}'}
+c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}' , 'g': 'https://www.google.com/search?q={}' , 'aw': 'https://wiki.archlinux.org/?search={}', 'yt': 'https://www.youtube.com/results?search_query={}', 'r': 'https://reddit.com/r/{}'}
 c.url.start_pages = ['file:///home/mubashir/.config/qutebrowser/blank.html']
 # c.url.yank_ignored_parameters = ['ref', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content']
 # c.window.hide_decoration = False
@@ -507,7 +507,7 @@ config.unbind('q')
 # config.bind('{{', 'navigate prev -t')
 # config.bind('}}', 'navigate next -t')
 config.bind('R', 'restart')
-config.bind('xx', 'config-cycle statusbar.hide')
+config.bind('xx', 'config-cycle statusbar.hide ;; config-cycle tabs.show always never')
 config.bind('po', 'set-cmd-text -s :open -p')
 config.bind('pF', 'hint links run open -p {hint-url}')
 config.bind('<Ctrl-Shift-F>', 'hint links spawn --detach mpv {hint-url}')
