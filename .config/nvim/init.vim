@@ -33,6 +33,9 @@ set backspace=indent,eol,start		" make backspace greate again
 colorscheme gruvbox			" default colorscheme
 hi Normal guibg=NONE ctermbg=NONE	" disable colorscheme background to use terminal's
 
+" vim colorizer
+let g:colorizer_startup = 0
+
 " vifm config
 let g:vifm_exec_args = "-c only"
 " vifm splits
