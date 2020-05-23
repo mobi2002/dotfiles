@@ -81,10 +81,12 @@ dmenu.highlight: #928374
 /* *.color15:    #E6E6E6 */
 
 ! gruvbox dark
-! hard contrast: *background: #1d2021
-*background: #282828
-! soft contrast: *background: #32302f
-*foreground: #ebdbb2
+! hard contrast:
+*background: #1d2021
+/* *background: #282828 */
+! soft contrast:
+*background: #32302f
+/* *foreground: #ebdbb2 */
 ! Black + DarkGrey
 *color0:  #282828
 *color8:  #928374

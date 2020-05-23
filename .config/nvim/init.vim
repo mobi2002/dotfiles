@@ -103,6 +103,7 @@ autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
 " (vim-commentry) set " to comment string for vifmrc
 autocmd FileType vifm setlocal commentstring=\"\ %s
+autocmd FileType xdefaults setlocal commentstring=\!\ %s
 
 " add shebang depending on extension
 autocmd BufNewFile *.py 0put =\"#!/usr/bin/env python\<nl>\"|$
