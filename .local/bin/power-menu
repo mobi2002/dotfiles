@@ -2,7 +2,7 @@
 
 poweroff="Poweroff"
 reboot="Reboot"
-logout="Log out"
+logout="Exit"
 Suspend="Suspend"
 list=4
 

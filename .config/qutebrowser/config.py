@@ -184,7 +184,7 @@ c.content.host_blocking.lists = ['https://raw.githubusercontent.com/StevenBlack/
 # c.content.register_protocol_handler = 'ask'
 # c.content.site_specific_quirks = True
 # c.content.ssl_strict = 'ask'
-# c.content.user_stylesheets = []
+c.content.user_stylesheets = ['~/.config/qutebrowser/gruvbox-all-sites.css']
 # c.content.webgl = True
 # c.content.webrtc_ip_handling_policy = 'all-interfaces'
 # c.content.windowed_fullscreen = False
@@ -318,7 +318,7 @@ c.tabs.show = 'multiple'
 c.url.default_page = 'file:///home/mubashir/.config/qutebrowser/blank.html'
 # c.url.incdec_segments = ['path', 'query']
 # c.url.open_base_url = False
-c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}' , 'g': 'https://www.google.com/search?q={}' , 'aw': 'https://wiki.archlinux.org/?search={}', 'yt': 'https://www.youtube.com/results?search_query={}', 'r': 'https://reddit.com/r/{}'}
+c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}' , 'g': 'https://www.google.com/search?q={}' , 'aw': 'https://wiki.archlinux.org/?search={}', 'yt': 'https://www.youtube.com/results?search_query={}', 'r': 'https://reddit.com/r/{}', 'ka': 'https://kissanime.nz/Search/?s={}'}
 c.url.start_pages = ['file:///home/mubashir/.config/qutebrowser/blank.html']
 # c.url.yank_ignored_parameters = ['ref', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content']
 # c.window.hide_decoration = False
