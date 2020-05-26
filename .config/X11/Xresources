@@ -111,3 +111,5 @@ dmenu.highlight: #928374
 ! LightGrey + White
 *color7:  #a89984
 *color15: #ebdbb2
+
+Xft.dpi: 96
