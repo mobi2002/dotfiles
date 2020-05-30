@@ -34,7 +34,7 @@ shopt -s checkwinsize
 HISTCONTROL=ignoreboth ## don't put duplicate lines or lines starting with space in the history
 HISTSIZE=-1 ## unlimited history
 HISTFILESIZE=-1 ## unlimited history file
-HISTFILE="$XDG_DATA_HOME/bash/history"
+HISTFILE="$HOME/.local/share/bash/history"
 
 # immideately write history
 PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
