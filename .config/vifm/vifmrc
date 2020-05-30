@@ -181,6 +181,9 @@ filextype *.html,*.htm
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
          \ sxiv -ia %f &,
 
+filextype *.xcf
+	\ gimp %f &,
+
 " MD5
 filetype *.md5
        \ {Check MD5 hash sum}
@@ -243,7 +246,7 @@ fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
     \ %pc
     \ vifmimg clear
 
-fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.xpm
+fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.xpm,
     \ vifmimg draw %px %py %pw %ph %c
     \ %pc
     \ vifmimg clear
