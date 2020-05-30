@@ -30,6 +30,9 @@ _run_if sxhkd &
 # screen compositor (picom=compton)
 _run_if picom &
 
+# run pulseaudio daemon
+_run_if pulseaudio --kill --start &
+
 # lemonbar instance
 
 panel &

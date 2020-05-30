@@ -17,13 +17,17 @@ super + w
 	$BROWSER
 
 super + alt + w
-	firefox
+	chromium
 
 alt + m
 	movie-select
 
 alt + p
 	manpdf
+
+# create qr code of things in clipboard
+alt + q
+	qrgen "$(xclip -o)"
 
 # configure sudo to not ask password for this
 super + alt + c
