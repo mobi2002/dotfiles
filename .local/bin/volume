@@ -1,12 +1,12 @@
 #!/bin/bash
 
 volume() {
-	read -r -a amixer_out <<< "$(amixer get Master | awk -F'[][]' 'END{ print $2, $6 }')"
-	#vol=$(amixer get Master | awk -F'[][]' '{print $2}' | awk NF | uniq)
-	#mute=$(amixer get Master | awk -F'[][]' '{print $4}' | awk NF | uniq)
+	# read -r -a amixer_out <<< "$(amixer get Master | awk -F'[][]' 'END{ print $2, $4 }')"
+	vol=$(pamixer --get-volume)
+	mute=$(pamixer --get-mute)
 
-	if [ ${amixer_out[1]} == "on" ]; then
-		echo "VVOL: ${amixer_out[0]}"
+	if [ $mute == "false" ]; then
+		echo "VVOL: $vol%"
 	else
 		echo "VVOL: mute"
 	fi
