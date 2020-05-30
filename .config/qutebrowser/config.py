@@ -154,8 +154,8 @@ c.content.dns_prefetch = True
 # c.content.headers.referer = 'same-domain'
 # c.content.headers.user_agent = 'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) {qt_key}/{qt_version} {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version}'
 c.content.host_blocking.enabled = True
-c.content.host_blocking.lists = ['https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts', 'https://github.com/jmdugan/blocklists/raw/master/corporations/facebook/all', 'https://github.com/jmdugan/blocklists/raw/master/corporations/cloudflare/all', 'https://github.com/jmdugan/blocklists/raw/master/corporations/amazon/all', 'https://raw.githubusercontent.com/jmdugan/blocklists/master/corporations/twitter/all', 'https://github.com/jmdugan/blocklists/raw/master/corporations/microsoft/all', 'https://github.com/jmdugan/blocklists/raw/master/corporations/apple/all']
-#c.content.host_blocking.whitelist = []
+c.content.host_blocking.lists = ['https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts', 'https://github.com/jmdugan/blocklists/raw/master/corporations/facebook/all-but-whatsapp', 'https://github.com/jmdugan/blocklists/raw/master/corporations/cloudflare/all', 'https://github.com/jmdugan/blocklists/raw/master/corporations/amazon/all', 'https://raw.githubusercontent.com/jmdugan/blocklists/master/corporations/twitter/all', 'https://github.com/jmdugan/blocklists/raw/master/corporations/microsoft/all', 'https://github.com/jmdugan/blocklists/raw/master/corporations/apple/all']
+c.content.host_blocking.whitelist = ['web.whatsapp.com']
 # c.content.hyperlink_auditing = False
 # c.content.images = True
 # c.content.javascript.alert = True
@@ -507,13 +507,14 @@ config.unbind('q')
 # config.bind('{{', 'navigate prev -t')
 # config.bind('}}', 'navigate next -t')
 config.bind('R', 'restart')
-config.bind('xx', 'config-cycle statusbar.hide ;; config-cycle tabs.show always never')
+config.bind('xx', 'config-cycle statusbar.hide ;; config-cycle tabs.show multiple never')
 config.bind('XX', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/gruvbox-all-sites.css ""')
 config.bind('po', 'set-cmd-text -s :open -p')
 config.bind('pF', 'hint links run open -p {hint-url}')
 config.bind('<Ctrl-Shift-F>', 'hint links spawn --detach mpv {hint-url}')
 config.bind('<Ctrl-Shift-T>', 'hint links spawn --detach transadd {hint-url}')
 config.bind('<shift-#>', 'hint code userscript code_select.py')
+config.bind('<Shift-q>', 'hint links spawn --detach qrgen {hint-url}')
 # config.bind('$', 'move-to-end-of-line', mode='caret')
 # config.bind('0', 'move-to-start-of-line', mode='caret')
 # config.bind('<Ctrl-Space>', 'drop-selection', mode='caret')
