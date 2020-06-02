@@ -1,23 +1,20 @@
-#!/bin/bash
+#!/bin/sh
 
 volume() {
-	# read -r -a amixer_out <<< "$(amixer get Master | awk -F'[][]' 'END{ print $2, $4 }')"
-	vol=$(pamixer --get-volume)
-	mute=$(pamixer --get-mute)
+	vol="$(amixer get Master | awk -F'[][]' 'END{ print $2, $6}')"
 
-	if [ $mute == "false" ]; then
-		echo "VVOL: $vol%"
+	if [ "${vol##* }" = "on" ]; then
+		echo "VVOL: ${vol%% *}"
 	else
 		echo "VVOL: mute"
 	fi
 }
 
 volume
-trap 'volume' SIGUSR1
-trap 'rm /tmp/volume; exit' SIGINT SIGHUP SIGTERM
+trap 'volume' USR1
 
 mkfifo /tmp/volume 2> /dev/null
 while true
 do
-	read -p < /tmp/volume
+	read -p < /tmp/volume 1>/dev/null 2>/dev/null
 done

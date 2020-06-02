@@ -17,7 +17,7 @@ trap trapusr2 USR2
 
 trapExit() {
         echo 'exit signal received'
-        rm $PANEL_FIFO
+        # rm $PANEL_FIFO
         pkill -HUP volume
         exit 0
 }

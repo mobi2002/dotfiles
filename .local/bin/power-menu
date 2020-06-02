@@ -16,6 +16,7 @@ case $choice in
 		loginctl reboot
 		;;
 	"$logout")
+		pkill panel
 		bspc quit
 		;;
 	"$Suspend")

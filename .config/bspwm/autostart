@@ -6,6 +6,7 @@ _run_if() {
 		eval "$@"
 	fi
 }
+
 # set the mouse pointer
 xsetroot -cursor_name left_ptr
 
@@ -30,12 +31,8 @@ _run_if sxhkd &
 # screen compositor (picom=compton)
 _run_if picom &
 
-# run pulseaudio daemon
-_run_if pulseaudio --kill --start &
-
 # lemonbar instance
-
-panel &
+_run_if panel &
 
 # automatically hide mouse pointer
 _run_if unclutter --ignore-scrolling &
@@ -48,4 +45,8 @@ _run_if imwheel
 # authentication agent
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
+# notification daemon
 _run_if dunst &
+
+# system tray
+_run_if stalonetray -c "$XDG_CONFIG_HOME/stalonetray/stalonetrayrc" &
