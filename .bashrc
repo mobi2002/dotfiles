@@ -22,7 +22,6 @@ alias poweroff='sudo poweroff'
 alias reboot='sudo reboot'
 alias vifm='vifmrun'
 alias config='/usr/bin/git --git-dir=$HOME/.local/dotfiles.git/ --work-tree=$HOME' ## command to manage my dotfiles
-alias startx-intel="startx -- -config intel/20-intel.conf" ## launch X with graphics driver
 
 # Customize default shell behaviour
 shopt -s autocd ## To do 'cd directory' without typing 'cd directory' and only typing 'directory'
