@@ -215,7 +215,7 @@ filetype *.asc
 
 filetype *.torrent transadd %f &
 
-filextype *.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx libreoffice %f &
+filextype *.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx libreoffice %f 1>2 2>/dev/null &
 
 " open man files in man...
 filetype *.[1-8] man ./%c
