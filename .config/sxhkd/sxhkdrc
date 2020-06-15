@@ -6,6 +6,9 @@
 super + Return
 	$TERMINAL
 
+alt + Return
+	$TERMINAL
+
 # program launcher
 super + d
 	dmenu_run -p Dmenu:

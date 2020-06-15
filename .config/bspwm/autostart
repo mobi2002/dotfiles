@@ -48,5 +48,7 @@ _run_if imwheel
 # notification daemon
 _run_if dunst &
 
+_run_if udiskie -ans &
+
 # system tray
 _run_if stalonetray -c "$XDG_CONFIG_HOME/stalonetray/stalonetrayrc" &
