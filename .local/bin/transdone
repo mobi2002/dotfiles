@@ -1,3 +1,4 @@
 #!/bin/sh
 notify-send -u low "Torrent $TR_TORRENT_ID completed!!"
 transmission-remote -t $TR_TORRENT_ID -r
+sleep 5 && loginctl poweroff

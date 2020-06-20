@@ -4,9 +4,11 @@ volume() {
 	vol="$(amixer get Master | awk -F'[][]' 'END{ print $2, $6}')"
 
 	if [ "${vol##* }" = "on" ]; then
-		echo "VVOL: ${vol%% *}"
+		#echo "VVOL: ${vol%% *}"
+		echo "V ${vol%% *}"
 	else
-		echo "VVOL: mute"
+		#echo "VVOL: mute"
+		echo "V mute"
 	fi
 }
 

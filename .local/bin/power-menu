@@ -2,11 +2,12 @@
 
 poweroff="Poweroff"
 reboot="Reboot"
-logout="Exit"
+logout="Log out"
 Suspend="Suspend"
-list=4
+hibernate="Hibernate"
+list=5
 
-choice="$(echo "$poweroff\n$reboot\n$Suspend\n$logout" | dmenu -i -l $list -p "Power:" )"
+choice="$(echo "$poweroff\n$reboot\n$logout\n$Suspend\n$hibernate" | dmenu -i -l $list -p "Power:" )"
 
 case $choice in
 	"$poweroff")
@@ -21,6 +22,9 @@ case $choice in
 		;;
 	"$Suspend")
 		loginctl suspend
+		;;
+	"$hibernate")
+		loginctl hibernate
 		;;
 	*)
 		exit 1
