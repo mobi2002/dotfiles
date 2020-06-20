@@ -6,22 +6,22 @@
 [[ $- != *i* ]] && return
 
 # Aliases to make my life easier
-alias ls='ls -F --color=auto --group-directories-first' ## list unhidden files
-alias ll='ls -lshF --color=auto --group-directories-first' ## list unhidden files in list form
-alias la='ls -AF --color=auto --group-directories-first' ## list all files
-alias lla='ls -lAshF --color=auto --group-directories-first' ## list all files in list form
-alias grep='grep -i --color=auto'
-alias cd..='cd ..'
+alias ls='ls --color=auto --group-directories-first' ## list unhidden files
+alias ll='ls -lsh --color=auto --group-directories-first' ## list unhidden files in list form
+alias la='ls -A --color=auto --group-directories-first' ## list all files
+alias lla='ls -lAsh --color=auto --group-directories-first' ## list all files in list form
+alias grep='grep -i --color=auto' ## search case-insensitively
 alias mv='mv -iv' ## verbose output + confirmation
 alias rm='rm -Iv --one-file-system' ## verbose output + confirmation
 alias sudo='sudo ' ## to make aliases work with sudo
 alias cp='cp -iv' ## verbose output + confirmation
 alias df='df -h' ## output in megabytes
 alias diff='diff --color=auto'
-alias poweroff='sudo poweroff'
-alias reboot='sudo reboot'
+alias poweroff='loginctl poweroff'
+alias reboot='loginctl reboot'
 alias vifm='vifmrun'
 alias config='/usr/bin/git --git-dir=$HOME/.local/dotfiles.git/ --work-tree=$HOME' ## command to manage my dotfiles
+alias cdo='cd $OLDPWD' ## move to old working directory
 
 # Customize default shell behaviour
 shopt -s autocd ## To do 'cd directory' without typing 'cd directory' and only typing 'directory'

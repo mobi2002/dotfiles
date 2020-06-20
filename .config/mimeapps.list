@@ -1,4 +1,3 @@
-
 [Default Applications]
 text/html=org.qutebrowser.qutebrowser.desktop
 x-scheme-handler/http=org.qutebrowser.qutebrowser.desktop
@@ -15,3 +14,6 @@ inode/directory=vifm.desktop
 application/x-shellscript=nvim.desktop
 application/x-bittorrent=torrent.desktop
 x-scheme-handler/magnet=torrent.desktop
+
+[Added Associations]
+text/plain=nvim.desktop;
