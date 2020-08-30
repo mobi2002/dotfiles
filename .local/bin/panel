@@ -29,7 +29,7 @@ PANEL_FIFO="/tmp/lemonbar"
 mkfifo "$PANEL_FIFO"
 
 #xtitle -sf 'T%s\n' > "$PANEL_FIFO" &
-while true; do date '+S%l:%M %p' | sed 's/^S\ /S/g' ; sleep 10 ; done > "$PANEL_FIFO" &
+while true; do date '+S%A %d %B, %I:%M %p' | sed 's/^S\ /S/g' ; sleep 10 ; done > "$PANEL_FIFO" &
 
 # battery
 while true; do battery ; sleep 5 ; done > "$PANEL_FIFO" &

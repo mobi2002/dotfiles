@@ -22,6 +22,9 @@ super + w
 super + alt + w
 	chromium
 
+super + shift + W
+	chromium --incognito
+
 alt + m
 	movie-select
 
@@ -35,6 +38,9 @@ alt + q
 # configure sudo to not ask password for this
 super + alt + c
 	sudo connman_dmenu
+
+alt + z
+	zoom
 
 #
 # bspwm hotkeys

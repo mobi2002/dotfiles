@@ -7,21 +7,17 @@
 
 # Aliases to make my life easier
 alias ls='ls --color=auto --group-directories-first' ## list unhidden files
-alias ll='ls -lsh --color=auto --group-directories-first' ## list unhidden files in list form
+alias ll='ls -lh --color=auto --group-directories-first' ## list unhidden files in list form
 alias la='ls -A --color=auto --group-directories-first' ## list all files
-alias lla='ls -lAsh --color=auto --group-directories-first' ## list all files in list form
+alias lla='ls -lAh --color=auto --group-directories-first' ## list all files in list form
 alias grep='grep -i --color=auto' ## search case-insensitively
-alias mv='mv -iv' ## verbose output + confirmation
-alias rm='rm -Iv --one-file-system' ## verbose output + confirmation
+alias mv='mv -i' ## verbose output + confirmation
+alias rm='rm -I --one-file-system' ## verbose output + confirmation
 alias sudo='sudo ' ## to make aliases work with sudo
-alias cp='cp -iv' ## verbose output + confirmation
+alias cp='cp -i' ## verbose output + confirmation
 alias df='df -h' ## output in megabytes
 alias diff='diff --color=auto'
-alias poweroff='loginctl poweroff'
-alias reboot='loginctl reboot'
-alias vifm='vifmrun'
 alias config='/usr/bin/git --git-dir=$HOME/.local/dotfiles.git/ --work-tree=$HOME' ## command to manage my dotfiles
-alias cdo='cd $OLDPWD' ## move to old working directory
 
 # Customize default shell behaviour
 shopt -s autocd ## To do 'cd directory' without typing 'cd directory' and only typing 'directory'
@@ -40,13 +36,6 @@ PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
 # My prompt customization
 PS1='\[\033[01;36m\]\u\[\033[01;37m\]@\[\033[01;32m\]\h:\[\033[01;34m\]\w\[\033[00m\]\$ '
-
-c() {
-	path="$(find ~/{.config/,.local/} -type d -name "icons" -prune -o -type d -name "wine" -prune -o  -type f -print ; find ~/ -maxdepth 1 -type f -name ".*")"
-	file="$(echo $path | sed 's/\ /\n/g' | fzf)"
-	[ -z $file ] || env $EDITOR $file
-	unset path file
-}
 
 EC() {
 	echo -e '\e[1;33m'exit code: $?'\e[m'

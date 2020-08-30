@@ -29,6 +29,9 @@ case "$class" in
 	winecfg.exe)
 		echo center=on
 		;;
+	DDLC)
+		echo state=floating
+		;;
 esac
 
 # set GtkFileChooserDialog to 800x600 and in center of screen

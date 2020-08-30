@@ -3,14 +3,14 @@ let mapleader=","
 
 " vim plugins
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'lilydjwg/colorizer'		" hex color highlighting
-Plug 'kovetskiy/sxhkd-vim' 		" sxhkdrc syntax highlighting
+" Plug 'lilydjwg/colorizer'		" hex color highlighting
+" Plug 'kovetskiy/sxhkd-vim' 		" sxhkdrc syntax highlighting
 Plug 'tpope/vim-commentary'		" make commenting easier
-Plug 'dracula/vim', { 'as': 'dracula' } " dracula color scheme
+" Plug 'dracula/vim', { 'as': 'dracula' } " dracula color scheme
 Plug 'morhetz/gruvbox' 			" gruvbox colorscheme
-Plug 'SirVer/ultisnips' 		" vim snippets to make coding and stuff faster
-Plug 'honza/vim-snippets' 		" provides actual snippets for 'ultisnips'
-Plug 'vifm/vifm.vim' 			" vifm integration in vim, also provides vifmrc syntax highlighting
+" Plug 'SirVer/ultisnips' 		" vim snippets to make coding and stuff faster
+" Plug 'honza/vim-snippets' 		" provides actual snippets for 'ultisnips'
+" Plug 'vifm/vifm.vim' 			" vifm integration in vim, also provides vifmrc syntax highlighting
 " Plug 'klen/python-mode' 		" make vim a python ide
 call plug#end()
 
@@ -34,10 +34,10 @@ colorscheme gruvbox			" default colorscheme
 hi Normal guibg=NONE ctermbg=NONE	" disable colorscheme background to use terminal's
 
 " vim colorizer
-let g:colorizer_startup = 0
+" let g:colorizer_startup = 0
 
 " vifm config
-let g:vifm_exec_args = "-c only"
+" let g:vifm_exec_args = "-c only"
 " vifm splits
 map <leader>s :SplitVifm<CR>
 map <leader>v :VsplitVifm<CR>
@@ -62,8 +62,8 @@ nnoremap S :%s//g<Left><Left>
 nnoremap U <C-r>
 
 " really delete text instead of copying it into the register
-noremap d "_d
-noremap dd "_dd
+" noremap d "_d
+" noremap dd "_dd
 
 " save and close quickly without having to correct error
 command! Q :q
@@ -85,18 +85,18 @@ autocmd BufWritepre * %s/\n\+\%$//e
 autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
 
 " load sxhkd automatically
-autocmd BufWritePost *sxhkdrc !pkill -USR1 -x sxhkd
+" autocmd BufWritePost *sxhkdrc !pkill -USR1 -x sxhkd
 
 " load imwheelrc automatically
-autocmd BufWritePost *imwheelrc !imwheel -k
+" autocmd BufWritePost *imwheelrc !imwheel -k
 
 " restart bspwm on config edit
-autocmd BufWritePost *bspwmrc,*autostart,*external_rules !bspc wm -r
+" autocmd BufWritePost *bspwmrc,*autostart,*external_rules !bspc wm -r
 
 " restart panel on config edit
-autocmd BufWritePost *panel,*panel_bar,*panel_colors !pkill -USR2 panel
+" autocmd BufWritePost *panel,*panel_bar,*panel_colors !pkill -USR2 panel
 
-autocmd BufWritePost *dunstrc !pkill dunst ; dunst &
+" autocmd BufWritePost *dunstrc !pkill dunst ; dunst &
 
 " source init.vim
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
@@ -114,11 +114,11 @@ au BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | silent !ch
 
 "" snippets
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+" let g:UltiSnipsJumpForwardTrigger="<tab>"
+" let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+" let g:UltiSnipsEditSplit="vertical"
 
 " return to last edit position
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+" au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif

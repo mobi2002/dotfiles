@@ -1,10 +1,11 @@
 #!/bin/sh
 
-
-WALL="$XDG_CONFIG_HOME"/wall
+WALL="$XDG_DATA_HOME"/wall
 
 restore() {
-	xwallpaper --zoom $WALL
+	[ -f "$WALL" ] && hsetroot -fill $WALL && exit
+	echo "No wallpaper set" >/dev/stderr
+	exit 1
 }
 
 wallset() {
@@ -19,6 +20,7 @@ else
 	if file "$IMAGE" |grep -qE 'image';then
 		wallset
 	else
+		echo "$IMAGE is not valid image file" >/dev/stderr
 		exit 1
 	fi
 fi
