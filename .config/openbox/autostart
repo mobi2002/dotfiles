@@ -1,0 +1,49 @@
+#!/bin/sh
+#
+# Autostart file
+
+# play startup chime
+mpv --no-config "$XDG_DATA_HOME"/sounds/chicago95-startup.ogg > /dev/null 2>&1 &
+
+# set wallpaper
+wallset
+
+# remap capslock and escape
+setxkbmap -option "caps:escape"
+setxkbmap -option "shift:both_capslock"
+
+# enable numlock
+numlockx
+
+# openbox window snap
+opensnap &
+
+# compositor
+picom &
+
+# Notification daemon
+/usr/lib/xfce4/notifyd/xfce4-notifyd &
+
+# panel
+xfce4-panel &
+
+# desktop icons
+nemo-desktop &
+
+# network manager applet
+nm-applet &
+
+# battery icon
+cbatticon -n -i notification -l 25 -r 15 &
+
+# polkit authentication agent
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+# usb automount
+udiskie -snm nested &
+
+# start qbittorrent
+sleep 10 && qbittorrent &
+
+# sleep 10 && keepassxc &
+sleep 10 && secret-tool lookup keepassxc Passwords | keepassxc --pw-stdin ~/.local/Passwords.kdbx
