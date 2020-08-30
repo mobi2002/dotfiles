@@ -1,6 +1,0 @@
-# scroll st with only scroll wheel
-# this is added by st-scrollback patch
-#
-  "^st$"
-  	none, Up, Alt_L|k, 4
-	none, Down, Alt_L|j, 4

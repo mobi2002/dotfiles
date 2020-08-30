@@ -1,5 +1,0 @@
-#!/bin/sh
-
-WINEPREFIX=~/.local/wine/pvz \
-	wine start /unix \
-	~/.local/wine/pvz/drive_c/Program\ Files/PlantsvsZombies/PlantsVsZombies.exe
